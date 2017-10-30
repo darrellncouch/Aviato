@@ -1,18 +1,31 @@
 {
   "name": "template",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.13.2",
+    "connect-session-knex": "^1.4.0",
+    "express-session": "^1.15.6",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "knex": "^0.13.0",
     "pg": "^7.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrellncouch/Aviato.git"
+  },
+  "bugs": {
+    "url": "https://github.com/darrellncouch/Aviato/issues"
+  },
+  "homepage": "https://github.com/darrellncouch/Aviato#readme",
+  "description": ""
 }
