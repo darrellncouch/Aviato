@@ -2,9 +2,12 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
-  index: function(req, res) {
-    res.render('login');
-  },
+login-registration-backend
+  index: function(req, res){
+    res.sendFile('index.html');
+  }
+  login: function(req, res) {
+
 
   check: function(req, res){
     knex('travelers')
@@ -18,5 +21,23 @@ module.exports = {
       }
 
     })
+login-registration-backend
+  },
+
+  reg: function(req, res){
+    res.render('travelReg');
+  },
+
+  register:  function(req, res){
+    knex('travelers')
+    .insert({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    })
+    .then(()=>{
+      res.redirect('login');
+    })
+
   }
 }
