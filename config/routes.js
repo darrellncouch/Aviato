@@ -9,7 +9,7 @@ module.exports = function(app){
 
   app.post('/traveler/login', traveler.check);
 
-  app.get('/traveler/rgister', travler.reg);
+  app.get('/traveler/register', traveler.reg);
 
   app.post('/traveler/register', traveler.register);
 

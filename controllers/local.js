@@ -1,13 +1,13 @@
 const knex = require("../db/knex.js");
 
-module.exports = {
+ module.exports = {
 
 check: function(req, res){
-  knex('locals')
+  knex('local')
   .where('username', req.body.username)
   .then((result)=>{
     if(result[0].password == req.body.password){
-      res.redirect('/locals');
+      res.redirect('/local');
     }
     else{
       res.redirect('/traveler/login')
@@ -17,20 +17,20 @@ check: function(req, res){
 },
 
 reg: function(req, res){
-  res.render('localReg');
+  res.render('locreg');
 },
 
-register:  function(req, res){
-  knex('locals')
+register: function(req, res){
+  knex('local')
   .insert({
     username: req.body.username,
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
     city: req.body.city,
     state: req.body.state
   })
   .then(()=>{
-    res.redirect('login');
+    res.render('login');
   })
 },
 
@@ -38,4 +38,4 @@ main: function(req, res){
   res.render('localmain');
 }
 
-}
+ }

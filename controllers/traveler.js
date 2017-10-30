@@ -1,12 +1,13 @@
 const knex = require("../db/knex.js");
 
 module.exports = {
-  // CHANGE ME TO AN ACTUAL FUNCTION
-login-registration-backend
   index: function(req, res){
-    res.sendFile('index.html');
-  }
-  login: function(req, res) {
+    res.render('index');
+  },
+
+   login: function(req, res) {
+     res.render('login');
+   },
 
 
   check: function(req, res){
@@ -21,11 +22,10 @@ login-registration-backend
       }
 
     })
-login-registration-backend
   },
 
   reg: function(req, res){
-    res.render('travelReg');
+    res.render('travreg');
   },
 
   register:  function(req, res){
@@ -36,8 +36,12 @@ login-registration-backend
       password: req.body.password
     })
     .then(()=>{
-      res.redirect('login');
+      res.render('login');
     })
 
+  },
+
+  main: function(req, res){
+    res.render('travmain');
   }
 }
