@@ -2,12 +2,12 @@ const knex = require("../db/knex.js");
 
 module.exports = {
   // CHANGE ME TO AN ACTUAL FUNCTION
+login-registration-backend
   index: function(req, res){
     res.sendFile('index.html');
   }
   login: function(req, res) {
-    res.render('login');
-  },
+
 
   check: function(req, res){
     knex('travelers')
@@ -21,6 +21,7 @@ module.exports = {
       }
 
     })
+login-registration-backend
   },
 
   reg: function(req, res){
@@ -37,5 +38,6 @@ module.exports = {
     .then(()=>{
       res.redirect('login');
     })
+
   }
 }
