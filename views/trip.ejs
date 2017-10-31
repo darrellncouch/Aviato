@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trip</title>
+  </head>
+  <body>
+    <h3>Trip</h3>
+
+        <p><%= trip.name %></p>
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
+
+        <%for(let i = 0; i < questions.length; i++){%>
+          <p><%=questions.question%></p>
+
+        <%}%>
+
+
+    <form action="/addQuestion/<%=trip.id%>" method="post">
+
+   <input type="text" name="category" placeholder="category">
+    <input type="text" name="question"  placeholder="question">
+   <input type="submit" name="" value="go" class="btn">
+
+
+ </form>
+    <a href="/traveler/addtrip">Add New Trip</a>
+  </body>
+</html>
