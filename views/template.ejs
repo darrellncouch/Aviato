@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- compiled and minified jquery -->
+ <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <!-- material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black|Pacifico|Poiret+One" rel="stylesheet">
+
+  <!-- main stylesheet -->
+  <link rel="stylesheet" href="../static/app.css">
+
+  <script src="../static/app.js"></script>
+
+  </script>
+
+  <title>INSERT TITLE HERE</title>
+  <body>
+    <div class="row gradient banner">
+      <div class="navbar-fixed">
+        <nav class="white opaque">
+          <div class="nav-wrapper ">
+            <a href="/" class="brand-logo center yellow-text pacifico">Aviato</a>
+              <ul id="nav-mobile" class="right hide-on-small-only">
+                <li><%= GET USER NAME FROM DB %></li>
+              </ul>
+          </div>
+        </nav>
+      </div>
+
+      <!-- dropdown menu -->
+      <div class="col s9 m8 l6 offset-m1 offset-l3 spacing-top-m ">
+        <div class="input-field col s8">
+         <select>
+           <option value="" disabled selected>Trips</option>
+           <% for(let i = 0; i < TRIPDATA.length; i++ %>
+           <option value="<%= TRIPDATA.id %>"><%= TRIPDATA.name %></option>
+         </select>
+       </div>
+       <div class="s2 m2 l3">
+         <input type="submit" name="" value="Select Trip" class="yellow black-text btn">
+       </div>
+       <div class="col s2 m2 l2 offset-s5 offest-m5 offset-l5 tooltip spacing-top-s">
+         <span class="tooltiptext">Add new trip</span>
+         <a class="btn-floating btn-large waves-effect waves-light yellow center-circle-btn " tooltip="add new trip"><i class="material-icons black-text">add</i></a>
+       </div>
+      </div>
+
+    </div>
+
+    <!-- content -->
+    <div class="row">
+
+      <!-- left -->
+      <div class="col s10 m10 l3 offset-s1 offset-m1 offset-l2  y-scroll">
+        <h3>Left Title</h3>
+          <div class="col s100 card">
+            <div class="col s100 heading-seperation">
+                <h5 class="">HEADING</h5>
+            </div>
+            <div class="s100">
+                <p>Content content con tent Content content con tent Content content Content contentContent contentContent content</p>
+            </div>
+          </div>
+      </div>
+
+      <!-- right -->
+      <div class="col s10 m10 l4 offset-s1 offset-m1 offset-l1   y-scroll">
+        <h3>Right Title</h3>
+        <ul class="collapsible popout" data-collapsible="accordion">
+           <li>
+             <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+           </li>
+           <li>
+             <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+           </li>
+           <li>
+             <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+           </li>
+         </ul>
+      </div>
+    </div>
+
+
+    <!-- Modal Trigger -->
+ <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+ <!-- Modal Structure -->
+ <div id="modal1" class="modal">
+   <div class="modal-content">
+     <h4>Modal Header</h4>
+     <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="submit" name="" value="Create account">
+          </div>
+        </div>
+      </form>
+    </div>
+
+ </div>
+
+
+  </body>
+</html>
