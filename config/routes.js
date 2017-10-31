@@ -15,6 +15,12 @@ module.exports = function(app){
 
   app.get('/traveler', traveler.main);
 
+  app.post('/traveler/addtrip', traveler.addTrip);
+
+  app.get('/trip/:id', traveler.getOneTrip);
+
+  app.post('/addQuestion/:id', traveler.addQuestion);
+
   app.post('/local/login', local.check);
 
   app.get('/local/register', local.reg);
@@ -22,7 +28,5 @@ module.exports = function(app){
   app.post('/local/register', local.register);
 
   app.get('/local', local.main);
-
-
 
 }
