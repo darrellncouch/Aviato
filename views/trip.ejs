@@ -1,30 +1,184 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Trip</title>
-  </head>
-  <body>
-    <h3>Trip</h3>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- compiled and minified jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-        <p><%= trip.name %></p>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
 
+
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- material icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black|Pacifico|Poiret+One" rel="stylesheet">
+
+<!-- main stylesheet -->
+<link rel="stylesheet" href="/app.css">
+
+<script src="/app.js"></script>
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+
+<title>INSERT TITLE HERE</title>
+
+<body>
+  <div class="row gradient banner">
+    <div class="navbar-fixed">
+      <nav class="white opaque">
+        <div class="nav-wrapper ">
+          <a href="/" class="brand-logo center yellow-text pacifico">Aviato</a>
+          <ul id="nav-mobile" class="right hide-on-small-only">
+            <li>
+              <a class="white-text" href="/traveler"><%=traveler.name%></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+    <!-- dropdown menu -->
+
+      <div class="center-align">
+        <h3 class="white-text"><%=trip.name%></h3>
+        <p class="white-text"><%=trip.description%></p>
+        <p class="white-text"><%=trip.city%>, <%=trip.state%></p>
+      </div>
+  <!-- content -->
+  <div class="row">
+
+    <!-- right -->
+    <div class="section">
+      <div class="container">
+
+
+    <div class="y-scroll">
+      <h3>Questions:</h3>
+      <ul class="collapsible popout" data-collapsible="accordion">
         <%for(let i = 0; i < questions.length; i++){%>
-          <p><%=questions.question%></p>
-
+          <li>
+            <div class="collapsible-header"><%=questions[i].question%></div>
+            <div class="collapsible-body"><span>
+              <a class="modal-trigger" href="#modal<%=questions[i].id%>">Edit</a>
+              <a href="/deleteQuestion/<%=questions[i].id%>/<%=questions[i].trips_id%>">Delete</a>
+              <br>
+              <br>
+              answers will appear here</span></div>
+          </li>
         <%}%>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+</div>
+  <!-- Modal Trigger -->
+  <div class="section">
+  <div class="container">
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit Question</a>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Submit Question</h4>
+      <div class="row">
+        <form action="/addQuestion/<%=trip.id%>" method="post" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <select name="catagory">
+                <option  selected>Select Catagory</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Things To Do">Things To Do</option>
+                <option value="Misc">Misc</option>
+              </select>
+            </div>
+            <div class="input-field col s6">
+              <input id="question" name="question" type="text">
+              <label for="question">Question</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="submit" value="Submit Question">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%for(let i = 0; i < questions.length; i++){%>
+<div id="modal<%=questions[i].id%>" class="modal">
+  <div class="modal-content">
+    <h4>Edit Question</h4>
+    <div class="row">
+      <form action="/editQuestion/<%=questions[i].id%>/<%=questions[i].trips_id%>" method="post" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <select name="catagory">
+              <%if(questions[i].catagory == "Hotel"){%>
+                <option selected value="Hotel">Hotel</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Things To Do">Things To Do</option>
+                <option value="Misc">Misc</option>
+              <%}else if(questions[i].catagory == "Restaurant"){%>
+                <option selected value="Restaurant">Restaurant</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Things To Do">Things To Do</option>
+                <option value="Misc">Misc</option>
+              <%}else if(questions[i].catagory == "Restaurant"){%>
+                <option selected value="Things To Do">Things To Do</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Misc">Misc</option>
+              <%}else{%>
+                <option selected value="Misc">Misc</option>
+                <option value="Things To Do">Things To Do</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Hotel">Hotel</option>
+              <%}%>
 
 
-    <form action="/addQuestion/<%=trip.id%>" method="post">
 
-   <input type="text" name="category" placeholder="category">
-    <input type="text" name="question"  placeholder="question">
-   <input type="submit" name="" value="go" class="btn">
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <input id="question" name="question" type="text" value="<%=questions[i].question%>">
+            <label for="question">Description</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="submit" value="Edit Question">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<%}%>
 
+</body>
 
- </form>
-    <a href="/traveler/addtrip">Add New Trip</a>
-  </body>
 </html>

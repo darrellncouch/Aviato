@@ -1,26 +1,184 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Traveler Main</title>
-  </head>
-  <body>
-    <h3>Traveler Main</h3>
-
-    <% for(let i = 0; i < trips.length; i++){%>
-      <a href="/trip/<%=trips[i].id%>"><%= trips[i].name %></a>
-    <%}%>
-
-    <form action="/traveler/addtrip" method="post">
-
-   <input type="text" name="name" placeholder="name">
-    <input type="text" name="description"  placeholder="description">
-    <input type="text" name="city" placeholder="city">
-    <input type="text" name="state" placeholder="state">
-   <input type="submit" name="" value="go" class="btn">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- compiled and minified jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 
- </form>
-    <a href="/traveler/addtrip">Add New Trip</a>
-  </body>
+
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- material icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black|Pacifico|Poiret+One" rel="stylesheet">
+
+<!-- main stylesheet -->
+<link rel="stylesheet" href="/app.css">
+
+<script src="/app.js"></script>
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+
+<title>INSERT TITLE HERE</title>
+
+<body>
+  <div class="row gradient banner">
+    <div class="navbar-fixed">
+      <nav class="white opaque">
+        <div class="nav-wrapper ">
+          <a href="/" class="brand-logo center yellow-text pacifico">Aviato</a>
+          <ul id="nav-mobile" class="right hide-on-small-only">
+            <li>
+              <%=traveler.name%>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- dropdown menu -->
+    <div class=" spacing-top-m ">
+      <div class="center-align">
+        <h3 class="white-text">Welcome, <%=traveler.name%></h3>
+      </div>
+      <div class="center-align">
+        <a href="#modal2" type="submit" class="modal-trigger yellow black-text btn">Add Trip</a>
+      </div>
+      </form>
+      <div class="col s2 m2 l2 offset-s5 offest-m5 offset-l5 tooltip spacing-top-s">
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Create New Trip</h4>
+            <div class="row">
+              <form action="/traveler/addtrip" method="post" class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input name="name" id="name" type="text">
+                    <label for="name"> Name</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="description" name="description" type="text">
+                    <label for="description">Description</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="city" name="city" type="text">
+                    <label for="city">City</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="state" type="text" name="state">
+                    <label for="state">State</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="submit" value="Create Trip">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- content -->
+  <div class="row">
+    <!-- left -->
+
+    <div class="section">
+      <div class="container">
+
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+            <%for(let i = 0; i < trips.length; i++){%>
+              <tr>
+                <td><a href="/trip/<%=trips[i].id%>"><%=trips[i].name%></a></td>
+                <td><%=trips[i].description%></td>
+                <td><a id="<%=trips[i].id%>" class="modal-trigger" href="#modal<%=trips[i].id%>">Edit</a></td>
+                <td><a href="/deleteTrip/<%=trips[i].id%>">Delete</a></td>
+              </tr>
+              <%}%>
+        </tbody>
+      </table>
+      </div>
+
+
+
+    </div>
+
+  <!-- Modal Structure -->
+  <%for(let i = 0; i < trips.length; i++){%>
+  <div id="modal<%=trips[i].id%>" class="modal">
+    <div class="modal-content">
+      <h4>Edit Trip</h4>
+      <div class="row">
+        <form action="/editTrip/<%=trips[i].id%>" method="post" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="name" name="name" type="text" value="<%=trips[i].name%>">
+              <label for="name">Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="description" name="description" type="text" value="<%=trips[i].description%>">
+              <label for="description">Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="city" name="city" type="text" value="<%=trips[i].city%>">
+              <label for="city">City</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="state" type="text" name="state" value="<%=trips[i].state%>">
+              <label for="state">state</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="submit" value="Edit Trip">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%}%>
+
+</body>
+
 </html>

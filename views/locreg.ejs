@@ -15,7 +15,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <script type="text/javascrrsipt" src="static/login.js">
+    <script type="text/javascript" src="static/login.js">
 
     </script>
 
@@ -24,19 +24,20 @@
   </head>
   <body>
     <div class="row">
-      <div class="col s10 m8 l6 offset-s1 offset-m2 offset l3 card">
-        <h3 class="center-align">let's fill some things out...</h3>
-        <form class="" action="/local/register" method="post" >
-          <input type="text" name="username" value="" placeholder="Username">
-          <input type="text" name="email" value="" placeholder="Email">
-          <input type="text" name="password" value="" placeholder="Password">
-          <input type="text" name="city" value=""placeholder="City" >
-          <input type="text" name="state" value="" placeholder="State">
-          <input type="submit" name="" value="Register" class="btn">
-        </form>
+       <div class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 card">
+         <h3 class="center-align">Local Registation</h3>
+         <form action="/local/register" method="post">
+           <input type="text" name="name" placeholder="NAME">
+        <input type="text" name="username" placeholder="USERNAME">
+         <input type="text" name="Email"  placeholder="EMAIL">
+         <input type="text" name="password" placeholder="PASSWORD">
+         <input type="text" name="city" placeholder="CITY">
+         <input type="text" name="state" placeholder="STATE">
+        <input type="submit" value="go" class="btn">
 
-      </div>
 
-    </div>
+      </form>
+       </div>
+   </div>
   </body>
 </html>

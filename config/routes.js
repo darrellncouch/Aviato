@@ -19,7 +19,15 @@ module.exports = function(app){
 
   app.get('/trip/:id', traveler.getOneTrip);
 
+  app.post('/editTrip/:id', traveler.editTrip);
+
+  app.get('/deleteTrip/:id', traveler.deleteTrip);
+
   app.post('/addQuestion/:id', traveler.addQuestion);
+
+  app.post('/editQuestion/:id/:trip_id', traveler.editQuestion);
+
+  app.get('/deleteQuestion/:id/:trip_id', traveler.deleteQuestion);
 
   app.post('/local/login', local.check);
 
@@ -28,5 +36,7 @@ module.exports = function(app){
   app.post('/local/register', local.register);
 
   app.get('/local', local.main);
+
+  app.post('/answer/:id', local.createAnswer);
 
 }

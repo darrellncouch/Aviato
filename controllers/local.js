@@ -7,10 +7,15 @@ check: function(req, res){
   .where('username', req.body.username)
   .then((result)=>{
     if(result[0].password == req.body.password){
-      res.redirect('/local');
+      req.session.localUser = result[0];
+      req.session.save(()=>{
+        res.redirect('/local');
+      })
+
     }
     else{
-      res.redirect('/traveler/login')
+        res.redirect('/traveler/login')
+
     }
 
   })
@@ -28,14 +33,31 @@ register: function(req, res){
     password: req.body.password,
     city: req.body.city,
     state: req.body.state
-  })
+  }, "*")
   .then(()=>{
     res.render('login');
   })
 },
 
 main: function(req, res){
-  res.render('localmain');
+  knex('questions')
+  .join('trips', 'trips.id', '=', 'questions.trips_id')
+  .select('questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .where('trips.state', req.session.localUser.state)
+  .then((result)=>{
+    res.render('localmain', {questions: result})
+  })
+},
+
+createAnswer: function(req, res){
+  knex('answers')
+  .insert({
+    answer: reg.pody.answer,
+    question_id: req.params.id
+  }, "*")
+  .then(()=>{
+    res.redirect()
+  })
 }
 
  }

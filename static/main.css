@@ -1,0 +1,77 @@
+body, html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: #007991;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #78ffd6, #007991);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #78ffd6, #007991); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.card{
+  background-color:rgba(255,255,255,0.3) !important;
+  border-radius: 5px;
+  margin-top: 125px;
+}
+.spacing-bottom-m{
+  margin-bottom: 75px !important;
+}
+.spacing-top-m{
+  margin-top: 75px;
+}
+
+.opaque{
+  background-color:rgba(255,255,255,0.4) !important;
+}
+
+.centerbtn{
+  width: 100%;
+}
+
+/*google fonts*/
+.pacifico{font-family: 'Pacifico', cursive; }
+
+.archivo-black{font-family: 'Archivo Black', sans-serif;}
+
+.amatic-sc{font-family: 'Amatic SC', cursive;}
+
+.poiret-one{font-family: 'Poiret One', cursive;}
+
+/* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #ffeb3b !important;
+}
+/* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #ffeb3b !important;
+     box-shadow: 0 1px 0 0 #ffeb3b!important;
+   }
+ /* label focus color */
+   .input-field input[type=password]:focus + label {
+     color: #ffeb3b !important;
+ }
+ /* label underline focus color */
+    .input-field input[type=password]:focus {
+      border-bottom: 1px solid #ffeb3b !important;
+      box-shadow: 0 1px 0 0 #ffeb3b!important;
+    }
+/* label focus color */
+  .input-field input[type=email]:focus + label {
+    color: #ffeb3b !important;
+}
+/* label underline focus color */
+   .input-field input[type=email]:focus {
+     border-bottom: 1px solid #ffeb3b !important;
+     box-shadow: 0 1px 0 0 #ffeb3b!important;
+   }
+
+.indicator{
+  background-color: #ffeb3b !important;
+}
+
+.tabs{
+  background-color:rgba(255,255,255,0.0) !important;
+}
