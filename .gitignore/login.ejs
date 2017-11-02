@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="/login.js"></script>
+
+    <link rel="stylesheet" href="/main.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black|Pacifico|Poiret+One" rel="stylesheet">
+
+
+    <title></title>
+  </head>
+  <body>
+    <div class="row ">
+      <div class="col s12 opaque">
+        <ul class="tabs">
+          <li class="tab col s6"><a href="#test1" class="black-text">Traveler</a></li>
+          <li class="tab col s6"><a href="#test2" class="black-text">Local</a></li>
+        </ul>
+      </div>
+
+      <!-- traveler login -->
+      <div id="test1" class="col s12">
+        <div class="row">
+          <div class="col s10 m6 l4 offset-s1 offset-m3 offset-l4 card ">
+            <form class="col s12" action="/traveler/login" method="post">
+              <h3 class="center-align yellow-text pacifico">Aviato</h3>
+              <h3 class="center-align amatic-sc sapcing-bottom-m">Traveler Login</h3>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="username" type="text" >
+                  <label for="usernamename">Username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m6 l6 offset-m3 offset-l3">
+                  <input type="submit" name="" value="Lets's go!" class="btn right yellow  black-text centerbtn center-align">
+                  <p class="center-align spacing-top-m"><a href="/traveler/register">New here?</a></p>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+      </div>
+
+      <!-- local login -->
+      <div id="test2" class="col s12">
+        <div class="row">
+          <div class="col s10 m6 l4 offset-s1 offset-m3 offset-l4 card ">
+            <form class="col s12" action="/local/login" method="post">
+              <h3 class="center-align yellow-text pacifico">Aviato</h3>
+              <h3 class="center-align amatic-sc sapcing-bottom-m">Local Login</h3>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="username" type="text" class="validate">
+                  <label for="usernamename">Username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12 m6 l6 offset-m3 offset-l3">
+                  <input type="submit" name="" value="Lets's go!" class="btn right yellow  black-text centerbtn center-align">
+                  <p class="center-align spacing-top-m"><a href="/traveler/register">New here?</a></p>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+  </body>
+</html>

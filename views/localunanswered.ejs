@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- compiled and minified jquery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+
+
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<!-- material icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black|Pacifico|Poiret+One" rel="stylesheet">
+
+<!-- main stylesheet -->
+<link rel="stylesheet" href="/app.css">
+
+<script src="/app.js"></script>
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+
+<title>INSERT TITLE HERE</title>
+
+<body>
+  <div class="row gradient banner">
+    <div class="navbar-fixed">
+      <nav class="white opaque">
+        <div class="nav-wrapper ">
+          <a href="/" class="brand-logo center yellow-text pacifico">Aviato</a>
+          <ul id="nav-mobile" class="right hide-on-small-only">
+            <li>
+              <a href="/local"><%=local.name%></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- dropdown menu -->
+    <div class=" spacing-top-m ">
+      <div class="center-align">
+        <div class="row">
+          <a href="/local">All</a>
+          <a href="/local/unanswered">Unansered</a>
+          <a href="/local/answered">Answered</a>
+<%if(filter === "unfiltered"){%>
+  <form action="/localunanswered/filter" method="post">
+    <select name="filterCatagory">
+      <option  selected>Select Catagory</option>
+      <option value="Hotel">Hotel</option>
+      <option value="Restaurant">Restaurant</option>
+      <option value="Things To Do">Things To Do</option>
+      <option value="Misc">Misc</option>
+    </select>
+    <input class="yellow black-text btn" type="submit" value="Filter">
+
+  </form>
+
+<%}else{%>
+  <form action="/localunanswered/filter" method="post">
+    <select name="filterCatagory">
+      <%if(filter === "Hotel"){%>
+        <option selected value="Hotel">Hotel</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Things To Do">Things To Do</option>
+        <option value="Misc">Misc</option>
+      <%}else if(filter === "Restaurant"){%>
+        <option value="Hotel">Hotel</option>
+        <option selected value="Restaurant">Restaurant</option>
+        <option value="Things To Do">Things To Do</option>
+        <option value="Misc">Misc</option>
+      <%}else if(filter === "Things To Do"){%>
+        <option value="Hotel">Hotel</option>
+        <option value="Restaurant">Restaurant</option>
+        <option selected value="Things To Do">Things To Do</option>
+        <option value="Misc">Misc</option>
+      <%}else{%>
+        <option value="Hotel">Hotel</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Things To Do">Things To Do</option>
+        <option selected value="Misc">Misc</option>
+      <%}%>
+
+    </select>
+    <input class="yellow black-text btn" type="submit" value="Filter">
+
+  </form>
+
+<%}%>
+
+
+
+
+
+
+      </div>
+
+      </div>
+
+  </div>
+  <!-- content -->
+  <div class="row">
+        <div class="y-scroll col s12 m10 l8 offset-m1 offset-l2">
+          <h3>Questions:</h3>
+          <ul class="collapsible popout" data-collapsible="accordion">
+            <%for(let i = 0; i < questions.length; i++){%>
+              <%if(answers.filter((item)=>item.question_id === questions[i].id).length === 0){%>
+                <li>
+                  <div class="collapsible-header">
+                    <%=questions[i].question%> <%=questions[i].city%>, <%=questions[i].state%>
+                  </div>
+                  <div class="collapsible-body"><span>
+                    <h4>Trip Info:</h4>
+                    <p><b>Name:</b> <%=questions[i].name%></p>
+                    <p><b>Description:</b> <%=questions[i].description%></p>
+                <a class="modal-trigger" href="#answerModal<%=questions[i].id%>">Answer</a>
+                <br>
+                <br>
+
+          </span></div>
+                </li>
+
+              <%}%>
+
+              <%}%>
+          </ul>
+        </div>
+      </div>
+  </div>
+<%for(let i = 0; i < questions.length; i++){%>
+  <div class="col s2 m2 l2 offset-s5 offest-m5 offset-l5 tooltip spacing-top-s">
+    <div id="answerModal<%=questions[i].id%>" class="modal">
+      <div class="modal-content">
+        <h4>Answer Question</h4>
+        <div class="row">
+          <form action="/answer/<%=questions[i].id%>" method="post" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="asnwer" name="answer" type="text">
+                <label for="answer">Answer</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="submit" value="Submit Answer">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%}%>
+
+
+
+
+</body>
+
+</html>
