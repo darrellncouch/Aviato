@@ -105,3 +105,13 @@ margin-left: 20% !important;
 .user-spacing{
   margin-right: 25px !important;
 }
+
+.page-selectors{
+  width: 142.5px;
+}
+
+.clickable:hover{
+  background-color: #ffeb3b !important;
+  height: 55px !important;
+  padding-top: 10px;
+}
