@@ -83,13 +83,29 @@
       <ul class="collapsible popout" data-collapsible="accordion">
         <%for(let i = 0; i < questions.length; i++){%>
           <li>
-            <div class="collapsible-header"><%=questions[i].question%></div>
+            <div class="collapsible-header"><%=questions[i].question%> <%=answers.filter((item) => item.question_id === questions[i].id).length%></div>
             <div class="collapsible-body"><span>
               <a class="modal-trigger" href="#modal<%=questions[i].id%>">Edit</a>
               <a href="/deleteQuestion/<%=questions[i].id%>/<%=questions[i].trips_id%>">Delete</a>
-              <br>
-              <br>
-              answers will appear here</span></div>
+              <h4>Answers:</h4>
+              <%if(answers.filter((item) => item.question_id === questions[i].id).length === 0){%>
+                <p>No Answers</p>
+              <%}else{%>
+                <%for(let j = 0; j < answers.length; j++){%>
+                  <%if(answers[j].question_id === questions[i].id){%>
+
+                    <%if(answers[j].favorite){%>
+                      <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons">favorite</i></a>
+                      <%=answers[j].name%> says: <%=answers[j].answer%></p>
+                    <%}else{%>
+                      <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons">favorite_border</i></a>
+                      <%=answers[j].name%> says: <%=answers[j].answer%></p>
+                    <%}%>
+
+                  <%}%>
+                <%}%>
+              <%}%>
+              </span></div>
           </li>
         <%}%>
       </ul>
@@ -102,9 +118,9 @@
   <!-- Modal Trigger -->
   <div class="section">
   <div class="container">
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ask a Question</a>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modalAsk">Ask a Question</a>
   <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+  <div id="modalAsk" class="modal">
     <div class="modal-content">
       <h4>Submit Question</h4>
       <div class="row">
@@ -149,12 +165,12 @@
                 <option value="Restaurant">Restaurant</option>
                 <option value="Things To Do">Things To Do</option>
                 <option value="Misc">Misc</option>
-              <%}else if(questions[i].catagory == "Restaurant"){%>
-                <option selected value="Restaurant">Restaurant</option>
+              <%}else if(questions[i].catagory == "Restaurants"){%>
+                <option selected value="Restaurants">Restaurant</option>
                 <option value="Hotel">Hotel</option>
                 <option value="Things To Do">Things To Do</option>
                 <option value="Misc">Misc</option>
-              <%}else if(questions[i].catagory == "Restaurant"){%>
+              <%}else if(questions[i].catagory == "Things To Do"){%>
                 <option selected value="Things To Do">Things To Do</option>
                 <option value="Restaurant">Restaurant</option>
                 <option value="Hotel">Hotel</option>
