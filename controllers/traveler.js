@@ -15,6 +15,12 @@ module.exports = {
     knex('travelers')
     .where('username', req.body.username)
     .then((result)=>{
+      if(result.length === 0){
+        res.redirect('/traveler/login')
+      }
+      else{
+
+
       if(result[0].password == req.body.password){
         req.session.travelerUser = result[0];
         req.session.save(()=>{
@@ -24,6 +30,7 @@ module.exports = {
       else{
         res.redirect('/traveler/login')
       }
+       }
 
     })
   },
@@ -101,7 +108,11 @@ module.exports = {
       knex('questions')
       .where('trips_id', req.params.id)
       .then((resultTwo)=>{
-          res.render('trip', {trip: result[0], questions: resultTwo, traveler: req.session.travelerUser})
+        knex('answers')
+        .then((resultThree)=>{
+          res.render('trip', {trip: result[0], questions: resultTwo, traveler: req.session.travelerUser, answers: resultThree})
+        })
+
     })
   })
   },
@@ -137,6 +148,39 @@ module.exports = {
     .where('id', req.params.id)
     .then(()=>{
       res.redirect('/trip/'+req.params.trip_id);
+    })
+  },
+
+  favoriteAnswer: function(req, res){
+    knex('answers')
+    .where('id', req.params.id)
+    .then((result)=>{
+      if(result[0].favorite === true){
+        knex('answers')
+        .update({
+            favorite: false
+        })
+        .then(()=>{
+          res.redirect('/trip/'+req.params.trip_id);
+        })
+      }else{
+        knex('answers')
+        .update({
+            favorite: true
+        })
+        .then(()=>{
+          res.redirect('/trip/'+req.params.trip_id);
+        })
+      }
+
+
+    })
+  },
+
+  logout: function(req, res){
+    delete req.session.travelerUser;
+    req.session.save(()=>{
+      res.redirect('/traveler/login');
     })
   }
 

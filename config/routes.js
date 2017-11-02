@@ -37,6 +37,24 @@ module.exports = function(app){
 
   app.get('/local', local.main);
 
+  app.post('/local/filter', local.filter);
+
+  app.get('/local/unanswered', local.unansweredMain);
+
+  app.post('/localunanswered/filter', local.unansweredFilter);
+
+  app.get('/local/answered', local.answeredMain);
+
+  app.post('/localanswered/filter', local.answeredFilter);
+
   app.post('/answer/:id', local.createAnswer);
+
+  app.get('/deleteAnswer/:id', local.deleteAnswer);
+
+  app.get('/favoriteAnswer/:id/:trip_id', traveler.favoriteAnswer);
+
+  app.get('/local/logout', local.logout);
+
+  app.get('/traveler/logout', traveler.logout);
 
 }
