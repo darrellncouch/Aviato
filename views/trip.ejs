@@ -38,7 +38,7 @@
   });
 </script>
 
-<title>INSERT TITLE HERE</title>
+<title>Trip</title>
 
 <body>
   <div class="row gradient banner">
@@ -47,22 +47,29 @@
         <div class="nav-wrapper ">
           <a href="/" class="brand-logo center yellow-text pacifico">Aviato</a>
           <ul id="nav-mobile" class="right hide-on-small-only">
-            <li>
-              <a class="white-text" href="/traveler"><%=traveler.name%></a>
-            </li>
+            <ul id="nav-mobile" class="right hide-on-small-only">
+              <li class="user-font poiret-one">
+                <a href="/traveler" class="user-font"><%=traveler.name%></a>
+              </li>
+              <li class="user-spacing">
+                <i class=" material-icons ">account_circle</i>
+              </li>
+            </ul>
           </ul>
         </div>
       </nav>
     </div>
+    <!-- banner content -->
+    <div class="center-align">
+      <h3 class="white-text"><%=trip.name%></h3>
+      <p class="white-text"><%=trip.city%>, <%=trip.state%></p>
+      <p class="white-text"><%=trip.description%></p>
+    </div>
+  </div>
 
 
-    <!-- dropdown menu -->
 
-      <div class="center-align">
-        <h3 class="white-text"><%=trip.name%></h3>
-        <p class="white-text"><%=trip.description%></p>
-        <p class="white-text"><%=trip.city%>, <%=trip.state%></p>
-      </div>
+
   <!-- content -->
   <div class="row">
 
@@ -95,7 +102,7 @@
   <!-- Modal Trigger -->
   <div class="section">
   <div class="container">
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit Question</a>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ask a Question</a>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">

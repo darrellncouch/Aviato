@@ -1,81 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <script type="text/javascript" src="static/login.js">
+      <script type="text/javascript" src="/login.js"></script>
 
-    </script>
+      <link rel="stylesheet" href="/main.css">
+
+      <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black|Pacifico|Poiret+One" rel="stylesheet">
 
 
-    <title></title>
+      <title>Register</title>
+    </head>
   </head>
   <body>
-    <div class="row">
-       <div class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 card">
-         <h3 class="center-align">Traveler Registation</h3>
-         <form action="/traveler/register" method="post">
-           <input type="text" name="name" placeholder="NAME">
 
-        <input type="text" name="username" placeholder="USERNAME">
-         <input type="text" name="Email"  placeholder="EMAIL">
-         <input type="password" name="password" placeholder="PASSWORD">
-        <input type="submit" name="" value="go" class="btn">
-
-
-      </form>
+     <div class="row">
+       <div class="col s10 m8 l6 offset-s1 offset-m2 offset-l3 card ">
+         <form class="col s12" action="/traveler/register" method="post">
+           <h3 class="center-align yellow-text pacifico">Aviato</h3>
+           <h3 class="center-align amatic-sc sapcing-bottom-m">Traveler Register</h3>
+           <div class="row">
+             <div class="input-field col s12">
+               <input id="name" type="text" name="name">
+               <label for="name">Name</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field col s12">
+               <input id="username" type="text" name="username">
+               <label for="username">userName</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field col s12">
+               <input id="email" type="email" name="email">
+               <label for="email">Email</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="input-field col s12">
+               <input id="password" type="password" name="password">
+               <label for="password">Password</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col s12 m6 l6 offset-m3 offset-l3">
+               <input type="submit" value="Register" class="btn right yellow  black-text centerbtn center-align">
+             </div>
+           </div>
+         </form>
+         </div>
        </div>
 
 
-       <div id="modal1" class="modal">
-         <div class="modal-content">
-           <h4>Modal Header</h4>
-           <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text">
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="last_name" type="text">
-                  <label for="last_name">Last Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="submit" name="" value="Create account">
-                </div>
-              </div>
-            </form>
-          </div>
-
-
-   </div>
   </body>
 </html>
