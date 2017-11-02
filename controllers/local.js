@@ -50,11 +50,12 @@ main: function(req, res){
   .join('trips', 'trips.id', '=', 'questions.trips_id')
   .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
   .where('trips.state', req.session.localUser.state)
+  .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
+  .select('travelers.name as travelersname')
   .then((result)=>{
     knex('answers')
     .where('local_id', req.session.localUser.id)
     .then((resultTwo)=>{
-      console.log(resultTwo)
       res.render('localmain', {questions: result, answers: resultTwo, local: req.session.localUser, filter: 'unfiltered'})
     })
   })
@@ -94,6 +95,8 @@ unansweredMain: function(req, res){
   .join('trips', 'trips.id', '=', 'questions.trips_id')
   .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
   .where('trips.state', req.session.localUser.state)
+  .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
+  .select('travelers.name as travelersname')
   .then((result)=>{
     knex('answers')
     .where('local_id', req.session.localUser.id)
@@ -123,6 +126,8 @@ answeredMain: function(req, res){
   .join('trips', 'trips.id', '=', 'questions.trips_id')
   .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
   .where('trips.state', req.session.localUser.state)
+  .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
+  .select('travelers.name as travelersname')
   .then((result)=>{
     knex('answers')
     .where('local_id', req.session.localUser.id)

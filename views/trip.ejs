@@ -51,9 +51,10 @@
               <li class="user-font poiret-one">
                 <a href="/traveler" class="user-font"><%=traveler.name%></a>
               </li>
-              <li class="user-spacing">
-                <i class=" material-icons ">account_circle</i>
+              <li class="user-font poiret-one">
+                <a href="/traveler/logout" class="user-font">Logout</a>
               </li>
+
             </ul>
           </ul>
         </div>
@@ -85,8 +86,8 @@
           <li>
             <div class="collapsible-header"><%=questions[i].question%> <%=answers.filter((item) => item.question_id === questions[i].id).length%></div>
             <div class="collapsible-body"><span>
-              <a class="modal-trigger" href="#modal<%=questions[i].id%>">Edit</a>
-              <a href="/deleteQuestion/<%=questions[i].id%>/<%=questions[i].trips_id%>">Delete</a>
+              <a class="modal-trigger" href="#modal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
+              <a href="/deleteQuestion/<%=questions[i].id%>/<%=questions[i].trips_id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
               <h4>Answers:</h4>
               <%if(answers.filter((item) => item.question_id === questions[i].id).length === 0){%>
                 <p>No Answers</p>
@@ -95,10 +96,10 @@
                   <%if(answers[j].question_id === questions[i].id){%>
 
                     <%if(answers[j].favorite){%>
-                      <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons">favorite</i></a>
+                      <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons teal-text text-lighten-2">favorite</i></a>
                       <%=answers[j].name%> says: <%=answers[j].answer%></p>
                     <%}else{%>
-                      <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons">favorite_border</i></a>
+                      <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons teal-text text-lighten-2">favorite_border</i></a>
                       <%=answers[j].name%> says: <%=answers[j].answer%></p>
                     <%}%>
 

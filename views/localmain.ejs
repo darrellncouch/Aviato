@@ -43,6 +43,8 @@
           <ul id="nav-mobile" class="right hide-on-small-only">
             <li>
               <a href="/local"><%=local.name%></a>
+            </li>
+            <li>
               <a href="/local/logout">Logout</a>
             </li>
           </ul>
@@ -55,13 +57,13 @@
       <div class="center-align">
         <div class="row">
           <!-- <div class="col s2 offset-s3 card"> -->
-            <a class="btn page-selectors clickable white opaque center-align"href="/local/answered">Answered</a>
-          <!-- </div> -->
-          <!-- <div class="col s2 card"> -->
-            <a class="btn-large page-selectors yellow  center-align"href="/local">All</a>
+          <a class="btn-large page-selectors yellow black-text center-align"href="/local">All</a>
           <!-- </div>
           <div class="col s2 card"> -->
-            <a class="btn page-selectors clickable white opaque center-align"href="/local/unanswered">Unansered</a>
+          <a class="btn page-selectors clickable white opaque center-align"href="/local/answered">Answered</a>
+          <!-- </div> -->
+          <!-- <div class="col s2 card"> -->
+          <a class="btn page-selectors clickable white opaque  center-align"href="/local/unanswered">Unanswered</a>
         </div>
       </div>
     </div>
@@ -129,9 +131,11 @@
         <%for(let i = 0; i < questions.length; i++){%>
           <li>
             <div class="collapsible-header">
-              <%=questions[i].question%>
-              <%=questions[i].city%>,
-              <%=questions[i].state%>
+              <%=questions[i].travelersname%> asked: <%=questions[i].question%>
+                <%=questions[i].city%>,
+                <%=questions[i].state%>
+
+
             </div>
             <div class="collapsible-body"><span>
               <h4>Trip Info:</h4>
@@ -141,13 +145,13 @@
                 <%if(answers[j].question_id === questions[i].id){%>
                   <h4>Your Answer:</h4>
                   <% if(answers[j].favorite === true){%>
-                    <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=questions[i].trips_id%>"><i class="material-icons">favorite</i></a> <%=answers[j].answer%> </p>
-                    <a class="modal-trigger" href="#editModal<%=questions[i].id%>">Edit</a>
-                    <a href="/deleteAnswer/<%=answers[j].id%>">Delete</a>
+                    <p><i class="material-icons teal-text text-lighten-2">favorite</i> <%=answers[j].answer%> </p>
+                    <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
+                    <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
                   <% }else{%>
-                    <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=questions[i].trips_id%>"><i class="material-icons">favorite_border</i></a> <%=answers[j].answer%> </p>
-                    <a class="modal-trigger" href="#editModal<%=questions[i].id%>">Edit</a>
-                    <a href="/deleteAnswer/<%=answers[j].id%>">Delete</a>
+                    <p><i class="material-icons teal-text text-lighten-2">favorite_border</i> <%=answers[j].answer%> </p>
+                    <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
+                    <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
                   <%}%>
 
 
