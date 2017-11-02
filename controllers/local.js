@@ -41,7 +41,7 @@ register: function(req, res){
     state: req.body.state
   }, "*")
   .then(()=>{
-    res.render('login');
+    res.render('login', {id: 'local'});
   })
 },
 

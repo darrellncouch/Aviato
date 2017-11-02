@@ -15,7 +15,13 @@ exports.seed = function(knex, Promise) {
         {id: 508, catagory: 'Restaurants', question: 'Best place for happy hour?', travelers_id: 503, trips_id: 506},
         {id: 509, catagory: 'Hotel', question: 'What is the best five star hotel close to any beach?', travelers_id: 503, trips_id: 507},
         {id: 510, catagory: 'Hotel', question: 'What hotels have a great view of the mountains?', travelers_id: 504, trips_id: 509},
-        {id: 511, catagory: 'Things To Do', question: 'Best spas?', travelers_id: 504, trips_id: 510}
+        {id: 511, catagory: 'Things To Do', question: 'Best spas?', travelers_id: 504, trips_id: 510},
+        {id: 512, catagory: 'Restaurants', question: 'Where is the best place to get a salad for lunch?', travelers_id: 501, trips_id: 501},
+        {id: 513, catagory: 'Things To Do', question: 'Where should we spend New Years Eve?', travelers_id: 501, trips_id: 502},
+        {id: 514, catagory: 'Things To Do', question: 'Where can we ski?', travelers_id: 501, trips_id: 502},
+        {id: 515, catagory: 'Hotel', question: 'What is the best boutique hotels?', travelers_id: 501, trips_id: 503},
+        {id: 516, catagory: 'Hotel', question: 'Should we stay in Scottsdale or in Phoenix?', travelers_id: 502, trips_id: 505},
+        {id: 517, catagory: 'Misc', question: 'How is the nightlife in Scottsdale?', travelers_id: 502, trips_id: 505}
       ]);
     });
 };

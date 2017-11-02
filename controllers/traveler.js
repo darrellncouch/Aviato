@@ -7,7 +7,8 @@ module.exports = {
   },
 
    login: function(req, res) {
-     res.render('login');
+     console.log('traveler')
+     res.render('login', {id: 'traveler'});
    },
 
 
@@ -48,7 +49,7 @@ module.exports = {
       password: req.body.password
     }, "*")
     .then((result)=>{
-      res.render('login');
+      res.render('login', {id: 'traveler'});
     })
 
   },

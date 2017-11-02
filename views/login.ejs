@@ -28,8 +28,14 @@
     <div class="row ">
       <div class="col s12 opaque">
         <ul class="tabs">
-          <li class="tab col s6"><a href="#test1" class="black-text">Traveler</a></li>
-          <li class="tab col s6"><a href="#test2" class="black-text">Local</a></li>
+          <%if(id == 'traveler'){%>
+            <li class="tab col s6"><a class="active black-text" href="#test1" class="black-text">Traveler</a></li>
+            <li class="tab col s6"><a href="#test2" class="black-text">Local</a></li>
+          <%}else{%>
+            <li class="tab col s6"><a href="#test1" class="black-text">Traveler</a></li>
+            <li class="tab col s6"><a class="active black-text" href="#test2" class="black-text">Local</a></li>
+          <%}%>
+
         </ul>
       </div>
 
@@ -64,7 +70,7 @@
       </div>
 
       <!-- local login -->
-      <div id="test2" class="col s12">
+      <div id="test2" class="  col s12">
         <div class="row">
           <div class="col s10 m6 l4 offset-s1 offset-m3 offset-l4 card ">
             <form class="col s12" action="/local/login" method="post">
