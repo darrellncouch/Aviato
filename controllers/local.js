@@ -33,6 +33,7 @@ reg: function(req, res){
 register: function(req, res){
   knex('local')
   .insert({
+    name: req.body.name,
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,

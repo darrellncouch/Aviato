@@ -87,19 +87,19 @@
             <div class="collapsible-body"><span>
               <a class="modal-trigger" href="#modal<%=questions[i].id%>">Edit</a>
               <a href="/deleteQuestion/<%=questions[i].id%>/<%=questions[i].trips_id%>">Delete</a>
-
+              <h4>Answers:</h4>
               <%if(answers.filter((item) => item.question_id === questions[i].id).length === 0){%>
-                <h4>No Answers</h4>
+                <p>No Answers</p>
               <%}else{%>
                 <%for(let j = 0; j < answers.length; j++){%>
                   <%if(answers[j].question_id === questions[i].id){%>
-                    <h4>Answers:</h4>
+
                     <%if(answers[j].favorite){%>
                       <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons">favorite</i></a>
                       <%=answers[j].name%> says: <%=answers[j].answer%></p>
                     <%}else{%>
                       <p><a href="/favoriteAnswer/<%=answers[j].id%>/<%=trip.id%>"><i class="material-icons">favorite_border</i></a>
-                      <%=answers[j].name%> <%=answers[j].answer%></p>
+                      <%=answers[j].name%> says: <%=answers[j].answer%></p>
                     <%}%>
 
                   <%}%>
@@ -118,9 +118,9 @@
   <!-- Modal Trigger -->
   <div class="section">
   <div class="container">
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ask a Question</a>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modalAsk">Ask a Question</a>
   <!-- Modal Structure -->
-  <div id="modal1" class="modal">
+  <div id="modalAsk" class="modal">
     <div class="modal-content">
       <h4>Submit Question</h4>
       <div class="row">
