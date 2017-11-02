@@ -45,36 +45,36 @@ body, html{
 .poiret-one{font-family: 'Poiret One', cursive;}
 
 /* label focus color */
-  .input-field input[type=text]:focus + label {
+  .underline input[type=text]:focus + label {
     color: #ffeb3b !important;
 }
 /* label underline focus color */
-   .input-field input[type=text]:focus {
+   .underline input[type=text]:focus {
      border-bottom: 1px solid #ffeb3b !important;
      box-shadow: 0 1px 0 0 #ffeb3b!important;
    }
  /* label focus color */
-   .input-field input[type=password]:focus + label {
+   .underline input[type=password]:focus + label {
      color: #ffeb3b !important;
  }
  /* label underline focus color */
-    .input-field input[type=password]:focus {
+    .underline input[type=password]:focus {
       border-bottom: 1px solid #ffeb3b !important;
       box-shadow: 0 1px 0 0 #ffeb3b!important;
     }
 /* label focus color */
-  .input-field input[type=email]:focus + label {
+  .underline input[type=email]:focus + label {
     color: #ffeb3b !important;
 }
 /* label underline focus color */
-   .input-field input[type=email]:focus {
+   .underline input[type=email]:focus {
      border-bottom: 1px solid #ffeb3b !important;
      box-shadow: 0 1px 0 0 #ffeb3b!important;
    }
 
 
 .banner{
-  height: 35% !important;
+  height: 45vh; !important;
 }
 .border{
   border: 1px solid black;
@@ -97,43 +97,11 @@ body, html{
 .center-circle-btn{
 margin-left: 20% !important;
 }
+.user-font{
 
-
-/*tooltip*/
-.tooltip {
-    position: relative;
-    display: inline-block;
+  font-size: 25px !important;
 }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
+.user-spacing{
+  margin-right: 25px !important;
 }
