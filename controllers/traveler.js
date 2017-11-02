@@ -109,7 +109,10 @@ module.exports = {
       .where('trips_id', req.params.id)
       .then((resultTwo)=>{
         knex('answers')
+        .join('local', 'local.id', '=', 'answers.local_id')
+        .select('answers.answer', 'answers.favorite', 'answers.local_id', 'answers.id', 'answers.question_id', 'local.name')
         .then((resultThree)=>{
+          console.log(resultTwo)
           res.render('trip', {trip: result[0], questions: resultTwo, traveler: req.session.travelerUser, answers: resultThree})
         })
 
@@ -155,11 +158,12 @@ module.exports = {
     knex('answers')
     .where('id', req.params.id)
     .then((result)=>{
-      if(result[0].favorite === true){
+      if(result[0].favorite){
         knex('answers')
         .update({
             favorite: false
         })
+        .where('id', req.params.id)
         .then(()=>{
           res.redirect('/trip/'+req.params.trip_id);
         })
@@ -168,6 +172,7 @@ module.exports = {
         .update({
             favorite: true
         })
+        .where('id', req.params.id)
         .then(()=>{
           res.redirect('/trip/'+req.params.trip_id);
         })
