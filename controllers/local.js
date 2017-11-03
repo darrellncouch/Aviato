@@ -167,6 +167,17 @@ deleteAnswer: function(req, res){
   })
 },
 
+editAnswer: function(req, res){
+  knex('answers')
+  .update({
+    answer: req.body.answer
+  })
+  .where('id', req.params.id)
+  .then(()=>{
+    res.redirect('/local');
+  })
+},
+
 logout: function(req, res){
   delete req.session.localUser;
   req.session.save(()=>{

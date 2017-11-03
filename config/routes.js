@@ -51,6 +51,8 @@ module.exports = function(app){
 
   app.get('/deleteAnswer/:id', local.deleteAnswer);
 
+  app.post('/editAnswer/:id', local.editAnswer);
+
   app.get('/favoriteAnswer/:id/:trip_id', traveler.favoriteAnswer);
 
   app.get('/local/logout', local.logout);
