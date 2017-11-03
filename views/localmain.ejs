@@ -128,17 +128,14 @@
         <%for(let i = 0; i < questions.length; i++){%>
           <li>
             <div class="collapsible-header">
-              <%=questions[i].travelersname%> asked: <%=questions[i].question%>
-                <%=questions[i].city%>,
-                <%=questions[i].state%>
-
-
+              <%=questions[i].travelersname%> asked: <%=questions[i].question%><span class="badge teal-text text-lighten-2"><%=questions[i].catagory%></span>
             </div>
             <div class="collapsible-body"><span>
               <h4>Trip Info:</h4>
               <p><b>Name:</b> <%=questions[i].name%></p>
-              <p><b>Description:</b> <%=questions[i].description%></p>
+              <p><b>Destination: </b><%=questions[i].city%>, <%=questions[i].state%></p>
               <p><b>Dates:</b> <%=questions[i].startDate.toString().replace(/ \d{2}:.+$/, " ")%> - <%=questions[i].endDate.toString().replace(/ \d{2}:.+$/, " ")%></p>
+              <p><b>Description:</b> <%=questions[i].description%></p>
               <%for(let j = 0; j < answers.length; j++){%>
                 <%if(answers[j].question_id === questions[i].id){%>
                   <h4>Your Answer:</h4>
@@ -148,6 +145,7 @@
                       <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
                       <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
                     </div>
+                    <br>
 
                   <% }else{%>
                       <p><i class="material-icons teal-text text-lighten-2">favorite_border</i> <%=answers[j].answer%> </p>
@@ -155,6 +153,7 @@
                       <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
                       <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
                     </div>
+                    <br>
                   <%}%>
               <%}%>
               <%}if(answers.filter((item)=>item.question_id === questions[i].id).length === 0){%>

@@ -7,7 +7,7 @@ check: function(req, res){
   .where('username', req.body.username)
   .then((result)=>{
     if(result.length === 0){
-        res.redirect('/traveler/login')
+        res.render('login', {id: 'local', message: 'username or password is incorrect'})
     }
     else{
     if(result[0].password == req.body.password){
@@ -18,7 +18,7 @@ check: function(req, res){
 
     }
     else{
-        res.redirect('/traveler/login')
+        res.render('login', {id: 'local', message: 'username or password is incorrect'})
 
     }
     }
@@ -41,7 +41,7 @@ register: function(req, res){
     state: req.body.state
   }, "*")
   .then(()=>{
-    res.render('login', {id: 'local'});
+    res.render('login', {id: 'local', message: 'no'});
   })
 },
 

@@ -8,7 +8,7 @@ module.exports = {
 
    login: function(req, res) {
      console.log('traveler')
-     res.render('login', {id: 'traveler'});
+     res.render('login', {id: 'traveler', message: 'no'});
    },
 
 
@@ -17,7 +17,7 @@ module.exports = {
     .where('username', req.body.username)
     .then((result)=>{
       if(result.length === 0){
-        res.redirect('/traveler/login')
+        res.render('login', {id: 'traveler', message: 'username or password is incorrect'})
       }
       else{
 
@@ -29,7 +29,7 @@ module.exports = {
         })
       }
       else{
-        res.redirect('/traveler/login')
+        res.render('login', {id: 'traveler', message: 'username or password is incorrect'})
       }
        }
 
@@ -49,7 +49,7 @@ module.exports = {
       password: req.body.password
     }, "*")
     .then((result)=>{
-      res.render('login', {id: 'traveler'});
+      res.render('login', {id: 'traveler', message: 'no'});
     })
 
   },

@@ -134,13 +134,14 @@
               <%if(answers.filter((item)=>item.question_id === questions[i].id).length === 0){%>
                 <li>
                   <div class="collapsible-header">
-                    <%=questions[i].travelersname%> asked: <%=questions[i].question%> <%=questions[i].city%>, <%=questions[i].state%>
+                    <%=questions[i].travelersname%> asked: <%=questions[i].question%><span class="badge teal-text text-lighten-2"><%=questions[i].catagory%></span>
                   </div>
                   <div class="collapsible-body"><span>
                     <h4>Trip Info:</h4>
                     <p><b>Name:</b> <%=questions[i].name%></p>
-                    <p><b>Description:</b> <%=questions[i].description%></p>
+                    <p><b>Destination: </b><%=questions[i].city%>, <%=questions[i].state%></p>
                     <p><b>Dates:</b> <%=questions[i].startDate.toString().replace(/ \d{2}:.+$/, " ")%> - <%=questions[i].endDate.toString().replace(/ \d{2}:.+$/, " ")%></p>
+                    <p><b>Description:</b> <%=questions[i].description%></p>
                 <a class="modal-trigger" href="#answerModal<%=questions[i].id%>">Answer</a>
                 <br>
                 <br>

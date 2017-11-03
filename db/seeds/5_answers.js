@@ -6,9 +6,9 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('answers').insert([
         {id: 501, answer: 'Kick off is at noon', favorite: false, local_id: 502, question_id: 501},
-        {id: 502, answer: 'Manhattan Beach is nice', favorite: false, local_id: 503, question_id: 504},
-        {id: 503, answer: 'If you have time Havasupai is amazing', favorite: false, local_id: 501, question_id: 507},
-        {id: 504, answer: 'The Scott is pretty nice', favorite: false, local_id: 501, question_id: 511}
+        {id: 502, answer: '12 but I would get there much earlier', favorite: false, local_id: 501, question_id: 501},
+        {id: 503, answer: 'The short north is great! my favorite is place Pint House', favorite: false, local_id: 501, question_id: 502},
+        {id: 504, answer: 'The Fish Bowl is usuall pretty fun!', favorite: false, local_id: 503, question_id: 505}
       ]);
     });
 };
