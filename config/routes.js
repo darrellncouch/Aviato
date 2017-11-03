@@ -3,7 +3,7 @@ const traveler = require("../controllers/traveler.js")
 const local = require("../controllers/local.js")
 module.exports = function(app){
 
-  app.get('/', traveler.index)
+  app.get('/', traveler.login);
 
   app.get('/traveler/login', traveler.login);
 
