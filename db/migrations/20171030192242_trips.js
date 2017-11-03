@@ -6,6 +6,8 @@ exports.up = function(knex, Promise) {
     table.string('description');
     table.string('city');
     table.string('state');
+    table.date('startDate');
+    table.date('endDate');
     table.integer('traveler_id')
     .notNullable()
     .references('id')

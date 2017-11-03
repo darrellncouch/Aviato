@@ -138,6 +138,7 @@
               <h4>Trip Info:</h4>
               <p><b>Name:</b> <%=questions[i].name%></p>
               <p><b>Description:</b> <%=questions[i].description%></p>
+              <p><b>Dates:</b> <%=questions[i].startDate.toString().replace(/ \d{2}:.+$/, " ")%> - <%=questions[i].endDate.toString().replace(/ \d{2}:.+$/, " ")%></p>
               <%for(let j = 0; j < answers.length; j++){%>
                 <%if(answers[j].question_id === questions[i].id){%>
                   <h4>Your Answer:</h4>

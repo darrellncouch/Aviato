@@ -68,6 +68,8 @@ module.exports = {
     .insert({
       name: req.body.name,
       description: req.body.description,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
       city: req.body.city,
       state: req.body.state,
       traveler_id: req.session.travelerUser.id
@@ -82,6 +84,8 @@ module.exports = {
     .update({
       name: req.body.name,
       description: req.body.description,
+      startDate: req.body.startDate,
+      endDate: req.body.endDate,
       city: req.body.city,
       state: req.body.state,
       traveler_id: req.session.travelerUser.id

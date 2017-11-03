@@ -48,7 +48,7 @@ register: function(req, res){
 main: function(req, res){
   knex('questions')
   .join('trips', 'trips.id', '=', 'questions.trips_id')
-  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city', 'trips.startDate', 'trips.endDate')
   .where('trips.state', req.session.localUser.state)
   .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
   .select('travelers.name as travelersname')
@@ -77,8 +77,10 @@ createAnswer: function(req, res){
 filter: function(req, res){
   knex('questions')
   .join('trips', 'trips.id', '=', 'questions.trips_id')
-  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city', 'trips.startDate', 'trips.endDate')
   .where('trips.state', req.session.localUser.state)
+  .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
+  .select('travelers.name as travelersname')
   .then((result)=>{
     knex('answers')
     .where('local_id', req.session.localUser.id)
@@ -93,7 +95,7 @@ filter: function(req, res){
 unansweredMain: function(req, res){
   knex('questions')
   .join('trips', 'trips.id', '=', 'questions.trips_id')
-  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city', 'trips.startDate', 'trips.endDate')
   .where('trips.state', req.session.localUser.state)
   .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
   .select('travelers.name as travelersname')
@@ -109,8 +111,10 @@ unansweredMain: function(req, res){
 unansweredFilter:function (req, res){
   knex('questions')
   .join('trips', 'trips.id', '=', 'questions.trips_id')
-  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city', 'trips.startDate', 'trips.endDate')
   .where('trips.state', req.session.localUser.state)
+  .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
+  .select('travelers.name as travelersname')
   .then((result)=>{
     knex('answers')
     .where('local_id', req.session.localUser.id)
@@ -124,7 +128,7 @@ unansweredFilter:function (req, res){
 answeredMain: function(req, res){
   knex('questions')
   .join('trips', 'trips.id', '=', 'questions.trips_id')
-  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city', 'trips.startDate', 'trips.endDate')
   .where('trips.state', req.session.localUser.state)
   .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
   .select('travelers.name as travelersname')
@@ -140,8 +144,10 @@ answeredMain: function(req, res){
 answeredFilter:function (req, res){
   knex('questions')
   .join('trips', 'trips.id', '=', 'questions.trips_id')
-  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city')
+  .select('questions.id', 'questions.catagory', 'questions.question', 'trips.name', 'trips.description', 'trips.state', 'trips.city', 'trips.startDate', 'trips.endDate')
   .where('trips.state', req.session.localUser.state)
+  .join('travelers', 'travelers.id', '=', 'questions.travelers_id')
+  .select('travelers.name as travelersname')
   .then((result)=>{
     knex('answers')
     .where('local_id', req.session.localUser.id)

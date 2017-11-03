@@ -64,6 +64,7 @@
     <div class="center-align">
       <h3 class="white-text"><%=trip.name%></h3>
       <p class="white-text"><%=trip.city%>, <%=trip.state%></p>
+      <p class="white-text"><%=trip.startDate.toString().replace(/ \d{2}:.+$/, " ")%> - <%=trip.endDate.toString().replace(/ \d{2}:.+$/, " ")%></p>
       <p class="white-text"><%=trip.description%></p>
     </div>
   </div>

@@ -88,25 +88,40 @@
       <div class="row">
         <form action="/editTrip/<%=trips[i].id%>" method="post" class="col s12">
           <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
               <input id="name" name="name" type="text" value="<%=trips[i].name%>">
               <label for="name">Name</label>
             </div>
-            <div class="input-field col s6">
-              <input id="description" name="description" type="text" value="<%=trips[i].description%>">
-              <label for="description">Description</label>
-            </div>
           </div>
+
           <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s6">
               <input id="city" name="city" type="text" value="<%=trips[i].city%>">
               <label for="city">City</label>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s6">
               <input id="state" type="text" name="state" value="<%=trips[i].state%>">
               <label for="state">state</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="startDate" name="startDate" type="text" class="datepicker" value="<%=trips[i].startDate.toString().replace(/ \d{2}:.+$/, " ")%>">
+              <label for="startDate">start Date</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="endDate" type="text" name="endDate" class="datepicker" value="<%=trips[i].endDate.toString().replace(/ \d{2}:.+$/, " ")%>">
+              <label for="endDate">End Date</label>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="description" name="description" type="text" value="<%=trips[i].description%>">
+              <label for="description">Description</label>
             </div>
           </div>
           <div class="row">
@@ -135,6 +150,17 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="startDate" name="startDate" type="text" class="datepicker">
+              <label for="startDate">start Date</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="endDate" type="text" name="endDate" class="datepicker">
+              <label for="endDate">End Date</label>
+            </div>
+          </div>
+
 
           <div class="row">
             <div class="input-field col s6">
@@ -146,6 +172,8 @@
               <label for="state">State</label>
             </div>
           </div>
+
+
 
 
           <div class="row">

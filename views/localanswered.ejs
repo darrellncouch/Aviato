@@ -143,8 +143,9 @@
                   </div>
                   <div class="collapsible-body"><span>
                     <h5>Trip Info:</h5>
-                <p>Name: <%=questions[i].name%></p>
-                <p>Description: <%=questions[i].description%></p>
+                <p><b>Name:</b> <%=questions[i].name%></p>
+                <p><b>Description:</b> <%=questions[i].description%></p>
+                <p><b>Dates:</b> <%=questions[i].startDate.toString().replace(/ \d{2}:.+$/, " ")%> - <%=questions[i].endDate.toString().replace(/ \d{2}:.+$/, " ")%></p>
               <%for(let j = 0; j < answers.length; j++){%>
                 <%if(answers[j].question_id === questions[i].id){%>
                   <h5>Your Answer:</h5>
