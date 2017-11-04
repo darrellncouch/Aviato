@@ -151,12 +151,16 @@
                   <h5>Your Answer:</h5>
                   <% if(answers[j].favorite === true){%>
                     <p><i class="material-icons teal-text text-lighten-2">favorite</i> <%=answers[j].answer%> </p>
-                    <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
-                    <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
+                    <div class="col s2 offset-s11">
+                      <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
+                      <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
+                    </div>
                   <% }else{%>
                     <p><i class="material-icons teal-text text-lighten-2">favorite_border</i> <%=answers[j].answer%> </p>
-                    <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
-                    <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
+                    <div class="col s2 offset-s11">
+                      <a class="modal-trigger" href="#editModal<%=questions[i].id%>"><i class="material-icons teal-text text-lighten-2">edit</i></a>
+                      <a href="/deleteAnswer/<%=answers[j].id%>"><i class="teal-text text-lighten-2 material-icons">cancel</i></a>
+                    </div>
                   <%}%>
 
                 <%}%>
